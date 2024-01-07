@@ -4,9 +4,8 @@ extends CharacterBody2D
 @export var speed = 200
 @onready var animationPlayer = $sprites/AnimationPlayer
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	# Input handling
+func process_movement():
+		# Input handling
 	var velocity = Vector2()  # Reset velocity
 	
 	if Input.is_action_pressed("run_up"):
@@ -32,3 +31,7 @@ func _process(delta):
 
 	# Move the character based on the calculated velocity
 	move_and_slide()
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	process_movement()
