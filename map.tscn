@@ -6,3 +6,4 @@
 position = Vector2(199, 73)
 
 [node name="player" parent="." instance=ExtResource("1_gvf3t")]
+scale = Vector2(6, 6)
