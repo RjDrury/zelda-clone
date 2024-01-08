@@ -12,6 +12,7 @@ func process_movement():
 		velocity.x = 0
 		velocity.y = 0		
 		return
+
 	if Input.is_action_pressed("run_up"):
 		animationPlayer.play("run_up")
 		velocity.y = -speed 
@@ -27,8 +28,7 @@ func process_movement():
 	else:
 		velocity.x = 0
 		velocity.y = 0
-		if !swordAnimationPlaying:
-			animationPlayer.stop()
+		animationPlayer.stop()
 
 	# Move the character based on the calculated velocity
 	move_and_slide()
@@ -40,7 +40,6 @@ func process_attack():
 	var mouse_position = get_local_mouse_position()
 	var direction = mouse_position
 	direction = direction.normalized()
-	print(player.global_position)
 	if abs(direction.x) > abs(direction.y):
 		if direction.x > 0:
 			animationPlayer.play("sword_right")
@@ -51,7 +50,8 @@ func process_attack():
 			animationPlayer.play("sword_down")
 		else:
 			animationPlayer.play("sword_up")
-
+	
+	
 	swordAnimationPlaying = true
 	return true
 
