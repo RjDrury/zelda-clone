@@ -1,0 +1,34 @@
+[gd_scene load_steps=2 format=3 uid="uid://cta7k0fi8cdq8"]
+
+[ext_resource type="Script" path="res://scripts/character_customerizer.gd" id="1_en42g"]
+
+[node name="character_customizer" type="Control"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_top = -2.0
+offset_right = 28.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_en42g")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="change_hat" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "hat
+"
+
+[node name="Button2" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "hair
+"
+
+[connection signal="pressed" from="VBoxContainer/change_hat" to="." method="_on_change_hat_pressed"]
