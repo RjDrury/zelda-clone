@@ -9,9 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://sv7l3rvpc5e" path="res://sprites/character/shoes/shoes.png" id="5_qdpoa"]
 [ext_resource type="Texture2D" uid="uid://ggmt585e1rfe" path="res://sprites/character/hat/hat_cowboy.png" id="6_kcd1x"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_82q5w"]
-radius = 6.48668
-height = 14.7425
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sb7nk"]
+size = Vector2(12.3837, 4.00396)
 
 [sub_resource type="Animation" id="Animation_3dukk"]
 length = 0.001
@@ -727,13 +726,14 @@ _data = {
 
 [node name="player" type="CharacterBody2D"]
 texture_filter = 1
+up_direction = Vector2(2.08165e-12, 1)
 script = ExtResource("1_mojdx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2(0, 4)
+position = Vector2(0, 13.5)
 scale = Vector2(1.13052, 1.74827)
-shape = SubResource("CapsuleShape2D_82q5w")
+shape = SubResource("RectangleShape2D_sb7nk")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
 
 [node name="sprites" type="Node2D" parent="."]
 
@@ -778,7 +778,7 @@ libraries = {
 }
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(4, 4)
+zoom = Vector2(3, 3)
 
 [node name="character_customizer" parent="." instance=ExtResource("2_s1dy6")]
 offset_left = 35.6667
