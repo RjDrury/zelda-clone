@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://csnbn7pt3jgvw"]
+[gd_scene load_steps=22 format=3 uid="uid://csnbn7pt3jgvw"]
 
 [ext_resource type="Texture2D" uid="uid://b72ie02dn584w" path="res://sprites/character/body/char1.png" id="1_7tvsr"]
 [ext_resource type="Script" path="res://scripts/player_movement.gd" id="1_mojdx"]
@@ -724,6 +724,10 @@ _data = {
 "sword_up": SubResource("Animation_4bftn")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qnw4m"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5xm6i"]
+
 [node name="player" type="CharacterBody2D"]
 texture_filter = 1
 up_direction = Vector2(2.08165e-12, 1)
@@ -785,3 +789,16 @@ offset_left = 35.6667
 offset_top = -24.0
 offset_right = 60.6667
 offset_bottom = -2.0
+
+[node name="attack_hitbox" type="ShapeCast2D" parent="."]
+position = Vector2(2.08165e-12, 20)
+shape = SubResource("RectangleShape2D_qnw4m")
+target_position = Vector2(2.08165e-12, 10)
+collision_mask = 4
+collide_with_areas = true
+
+[node name="player_hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player_hitbox"]
+position = Vector2(0, 5)
+shape = SubResource("CapsuleShape2D_5xm6i")

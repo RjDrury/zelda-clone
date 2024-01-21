@@ -1,18 +1,36 @@
 extends CharacterBody2D
 @onready var animationPlayer = $sprites/AnimationPlayer
+@onready var knockback_timer = $knockback_timer
+@onready var body_sprite = $sprites/body
 var speed = 100
-var isChasing = false
+var is_chasing = false
 var player = null
-
+var is_enemy = true
+var health = 100
+var is_dieing = false
+var is_knockedback = false
 
 func _physics_process(_delta: float) -> void:
-	if isChasing and player:
-		var direction = (player.position - position).normalized()
-		velocity = direction * speed
-	else:
-		velocity = Vector2.ZERO
-	_animate_enemy()
+	if is_dieing:
+		if !animationPlayer.current_animation.begins_with("die"):
+			self.queue_free()
+		return
+
+	if !is_knockedback:
+		if is_chasing and player:
+			update_chase_velocity()
+		else:
+			reset_velocity()
+	
 	move_and_slide()
+	_animate_enemy()
+
+func update_chase_velocity() -> void:
+	var direction = (player.position - position).normalized()
+	velocity = direction * speed
+
+func reset_velocity() -> void:
+	velocity = Vector2.ZERO
 
 func _animate_enemy() -> void:
 	if velocity.x == 0 and velocity.y == 0:
@@ -31,9 +49,27 @@ func _animate_enemy() -> void:
 
 func _on_detection_zone_body_entered(body: Node2D) -> void:
 	player = body
-	isChasing = true
-
+	is_chasing = true
 
 func _on_detection_zone_body_exited(_body: Node2D) -> void:
 	player = null
-	isChasing = false
+	is_chasing = false
+
+func take_damage(damage: int, knockback: bool = false) -> void:
+	health -= damage
+	if health <= 0:
+		process_death()
+	if knockback:
+		is_knockedback = true
+		body_sprite.modulate = Color(1, 0, 0, 1)
+		var direction = (position - player.position).normalized()
+		velocity = direction * speed 
+		knockback_timer.start()
+
+func process_death() -> void:
+	animationPlayer.play('die')
+	is_dieing = true
+
+func _on_knockback_timer_timeout() -> void:
+	is_knockedback = false
+	body_sprite.modulate = Color(1, 1, 1, 1)

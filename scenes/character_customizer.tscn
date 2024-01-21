@@ -3,7 +3,6 @@
 [ext_resource type="Script" path="res://scripts/character_customerizer.gd" id="1_en42g"]
 
 [node name="character_customizer" type="Control"]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -26,9 +25,10 @@ layout_mode = 2
 text = "hat
 "
 
-[node name="Button2" type="Button" parent="VBoxContainer"]
+[node name="change_hair" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 text = "hair
 "
 
 [connection signal="pressed" from="VBoxContainer/change_hat" to="." method="_on_change_hat_pressed"]
+[connection signal="pressed" from="VBoxContainer/change_hair" to="." method="_on_change_hair_pressed"]

@@ -1,10 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://bq4eclwn86ymg"]
+[gd_scene load_steps=14 format=3 uid="uid://bq4eclwn86ymg"]
 
 [ext_resource type="Script" path="res://scripts/enemy.gd" id="1_oyty0"]
 [ext_resource type="Texture2D" uid="uid://baqwcp2etlpil" path="res://sprites/enemies/slime_all.png" id="1_xrwqb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y68ur"]
-size = Vector2(13, 14)
+size = Vector2(13, 8)
 
 [sub_resource type="Animation" id="Animation_tcm57"]
 length = 0.001
@@ -47,6 +47,22 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 1,
 "values": [Vector2i(0, 13), Vector2i(1, 13), Vector2i(2, 13), Vector2i(3, 13), Vector2i(4, 13)]
+}
+
+[sub_resource type="Animation" id="Animation_os4l6"]
+resource_name = "idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("body:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 0), Vector2i(0, 4), Vector2i(1, 4)]
 }
 
 [sub_resource type="Animation" id="Animation_kvc27"]
@@ -113,22 +129,6 @@ tracks/0/keys = {
 "values": [45, 46, 47, 48, 49]
 }
 
-[sub_resource type="Animation" id="Animation_os4l6"]
-resource_name = "idle"
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("body:frame_coords")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.7),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [Vector2i(0, 0), Vector2i(0, 4), Vector2i(1, 4)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_mpelj"]
 _data = {
 "RESET": SubResource("Animation_tcm57"),
@@ -141,13 +141,16 @@ _data = {
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_o83nh"]
-radius = 84.214
+radius = 65.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7a6l6"]
+radius = 12.0
 
 [node name="enemy" type="CharacterBody2D"]
 script = ExtResource("1_oyty0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, 1)
+position = Vector2(-0.5, 4)
 shape = SubResource("RectangleShape2D_y68ur")
 
 [node name="sprites" type="Node2D" parent="."]
@@ -172,5 +175,17 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="detection_zone"]
 shape = SubResource("CircleShape2D_o83nh")
 
+[node name="hitbox" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
+shape = SubResource("CircleShape2D_7a6l6")
+
+[node name="knockback_timer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
 [connection signal="body_entered" from="detection_zone" to="." method="_on_detection_zone_body_entered"]
 [connection signal="body_exited" from="detection_zone" to="." method="_on_detection_zone_body_exited"]
+[connection signal="timeout" from="knockback_timer" to="." method="_on_knockback_timer_timeout"]
