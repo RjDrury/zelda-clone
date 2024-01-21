@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @export var speed = 200
 @export var attack_damage = 20
+@export var health = 100
 @onready var animationPlayer = $sprites/AnimationPlayer
 @onready var attack_hitbox = $attack_hitbox
 @onready var player = $"." 
@@ -25,6 +26,7 @@ var attack_hitbox_settings = {
 }
 var attack_direction = 'down'
 var is_attacking = false
+var is_knockedback = false
 var damaged_enemies_on_current_attack = []
 
 func process_movement():
@@ -105,6 +107,21 @@ func is_still_attacking():
 	if !animationPlayer.current_animation.begins_with("sword_"):
 		is_attacking = false
 		damaged_enemies_on_current_attack.clear()
+
+func take_damage(damange: int, knockback: bool) -> void:
+	health -= damange
+	if health <= 0:
+		process_death()
+	if knockback:
+		is_knockedback = true
+		#body_sprite.modulate = Color(1, 0, 0, 1)
+		var direction = (position - player.position).normalized()
+		velocity = direction * speed 
+		#knockback_timer.start()
+
+func process_death():
+	pass
+
 
 func _process(_delta):
 	process_attack()

@@ -733,7 +733,7 @@ texture_filter = 1
 up_direction = Vector2(2.08165e-12, 1)
 script = ExtResource("1_mojdx")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="player_collision" type="CollisionShape2D" parent="."]
 position = Vector2(0, 13.5)
 scale = Vector2(1.13052, 1.74827)
 shape = SubResource("RectangleShape2D_sb7nk")
@@ -742,36 +742,40 @@ debug_color = Color(0, 0.6, 0.701961, 0.419608)
 [node name="sprites" type="Node2D" parent="."]
 
 [node name="body" type="Sprite2D" parent="sprites"]
+z_index = 100
 texture = ExtResource("1_7tvsr")
 hframes = 8
 vframes = 49
 
 [node name="hair" type="Sprite2D" parent="sprites"]
-z_index = 5
+z_index = 101
 texture = ExtResource("3_j48bs")
 hframes = 112
 vframes = 49
 frame = 80
 
 [node name="shirt" type="Sprite2D" parent="sprites"]
+z_index = 100
 texture = ExtResource("3_0wvxa")
 hframes = 80
 vframes = 49
 frame = 16
 
 [node name="pants" type="Sprite2D" parent="sprites"]
+z_index = 100
 texture = ExtResource("4_oa3pl")
 hframes = 80
 vframes = 49
 frame = 16
 
 [node name="shoes" type="Sprite2D" parent="sprites"]
+z_index = 100
 texture = ExtResource("5_qdpoa")
 hframes = 80
 vframes = 49
 
 [node name="hat" type="Sprite2D" parent="sprites"]
-z_index = 6
+z_index = 102
 texture = ExtResource("6_kcd1x")
 hframes = 8
 vframes = 49
@@ -782,7 +786,7 @@ libraries = {
 }
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(3, 3)
+zoom = Vector2(5, 5)
 
 [node name="character_customizer" parent="." instance=ExtResource("2_s1dy6")]
 offset_left = 35.6667
