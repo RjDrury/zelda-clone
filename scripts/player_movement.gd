@@ -8,19 +8,19 @@ extends CharacterBody2D
 @onready var player = $"." 
 var attack_hitbox_settings = {
 	'left': {
-		'position': Vector2(-10, 10),
+		'position': Vector2(-12, -2),
 		'target_position': Vector2(-10, 0)
 	},
 	'right': {
-		'position': Vector2(10, 10),
+		'position': Vector2(12, -2),
 		'target_position': Vector2(10, 0)
 	},
 	'up': {
-		'position': Vector2(0, -5),
+		'position': Vector2(0, -12),
 		'target_position': Vector2(0, -10)
 	},
 	'down': {
-		'position': Vector2(0, 20),
+		'position': Vector2(0, 10),
 		'target_position': Vector2(0, 10)
 	}
 }

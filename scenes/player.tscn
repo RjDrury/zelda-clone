@@ -729,54 +729,63 @@ _data = {
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5xm6i"]
 
 [node name="player" type="CharacterBody2D"]
+y_sort_enabled = true
 texture_filter = 1
+position = Vector2(2.08165e-12, 2.08165e-12)
 up_direction = Vector2(2.08165e-12, 1)
 script = ExtResource("1_mojdx")
 
 [node name="player_collision" type="CollisionShape2D" parent="."]
-position = Vector2(0, 13.5)
+position = Vector2(-2.08165e-12, -2.86102e-06)
 scale = Vector2(1.13052, 1.74827)
 shape = SubResource("RectangleShape2D_sb7nk")
 debug_color = Color(0, 0.6, 0.701961, 0.419608)
 
 [node name="sprites" type="Node2D" parent="."]
+y_sort_enabled = true
 
 [node name="body" type="Sprite2D" parent="sprites"]
-z_index = 100
+position = Vector2(-2.08165e-12, -2.08165e-12)
 texture = ExtResource("1_7tvsr")
+offset = Vector2(2.08165e-12, -15)
 hframes = 8
 vframes = 49
 
-[node name="hair" type="Sprite2D" parent="sprites"]
-z_index = 101
-texture = ExtResource("3_j48bs")
-hframes = 112
-vframes = 49
-frame = 80
-
 [node name="shirt" type="Sprite2D" parent="sprites"]
-z_index = 100
+y_sort_enabled = true
 texture = ExtResource("3_0wvxa")
+offset = Vector2(2.08165e-12, -15)
 hframes = 80
 vframes = 49
 frame = 16
 
 [node name="pants" type="Sprite2D" parent="sprites"]
-z_index = 100
+y_sort_enabled = true
 texture = ExtResource("4_oa3pl")
+offset = Vector2(2.08165e-12, -15)
 hframes = 80
 vframes = 49
 frame = 16
 
 [node name="shoes" type="Sprite2D" parent="sprites"]
-z_index = 100
+y_sort_enabled = true
 texture = ExtResource("5_qdpoa")
+offset = Vector2(2.08165e-12, -15)
 hframes = 80
 vframes = 49
 
+[node name="hair" type="Sprite2D" parent="sprites"]
+y_sort_enabled = true
+texture = ExtResource("3_j48bs")
+offset = Vector2(2.08165e-12, -15)
+hframes = 112
+vframes = 49
+frame = 80
+
 [node name="hat" type="Sprite2D" parent="sprites"]
-z_index = 102
+y_sort_enabled = true
 texture = ExtResource("6_kcd1x")
+offset = Vector2(2.08165e-12, -15)
 hframes = 8
 vframes = 49
 
@@ -795,14 +804,14 @@ offset_right = 60.6667
 offset_bottom = -2.0
 
 [node name="attack_hitbox" type="ShapeCast2D" parent="."]
-position = Vector2(2.08165e-12, 20)
+position = Vector2(12, -2)
 shape = SubResource("RectangleShape2D_qnw4m")
-target_position = Vector2(2.08165e-12, 10)
+target_position = Vector2(10, 2.08165e-12)
 collision_mask = 4
 collide_with_areas = true
 
 [node name="player_hitbox" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player_hitbox"]
-position = Vector2(0, 5)
+position = Vector2(-2.08165e-12, -9)
 shape = SubResource("CapsuleShape2D_5xm6i")
