@@ -1,10 +1,12 @@
 extends CharacterBody2D
 
+var is_player = true
 @export var speed = 200
 @export var attack_damage = 20
 @export var health = 100
 @onready var animationPlayer = $sprites/AnimationPlayer
 @onready var attack_hitbox = $attack_hitbox
+@onready var knockback_timer = $knockback_timer
 @onready var player = $"." 
 var attack_hitbox_settings = {
 	'left': {
@@ -30,12 +32,14 @@ var is_knockedback = false
 var damaged_enemies_on_current_attack = []
 
 func process_movement():
-	if (is_attacking):
+	#Input.getVector
+	if (is_knockedback):
+		pass
+	elif (is_attacking):
 		velocity.x = 0
 		velocity.y = 0		
 		return
-
-	if Input.is_action_pressed("run_up"):
+	elif Input.is_action_pressed("run_up"):
 		animationPlayer.play("run_up")
 		velocity.y = -speed 
 		velocity.x = 0 
@@ -108,21 +112,25 @@ func is_still_attacking():
 		is_attacking = false
 		damaged_enemies_on_current_attack.clear()
 
-func take_damage(damange: int, knockback: bool) -> void:
+func take_damage(damange: int, knockback: bool, directionToKockback) -> void:
 	health -= damange
+	print(health)
 	if health <= 0:
 		process_death()
 	if knockback:
 		is_knockedback = true
+		velocity = directionToKockback * speed 
+		knockback_timer.start()
+		move_and_slide()
 		#body_sprite.modulate = Color(1, 0, 0, 1)
-		var direction = (position - player.position).normalized()
-		velocity = direction * speed 
-		#knockback_timer.start()
 
 func process_death():
 	pass
 
-
 func _process(_delta):
 	process_attack()
 	process_movement()
+
+func _on_knockback_timer_timeout() -> void:
+	is_knockedback = false
+	#body_sprite.modulate = Color(1, 1, 1, 1)
