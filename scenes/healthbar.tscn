@@ -1,9 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://c5nnpu3kblrev"]
+[gd_scene load_steps=5 format=3 uid="uid://c5nnpu3kblrev"]
 
 [ext_resource type="Script" path="res://scripts/healthbar.gd" id="1_gbxj4"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k17n0"]
+bg_color = Color(0.537255, 0.133333, 0.2, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_teiy1"]
+bg_color = Color(0.219608, 0.498039, 0.2, 1)
+
 [sub_resource type="Theme" id="Theme_kt5i2"]
 default_font_size = 8
+ProgressBar/styles/background = SubResource("StyleBoxFlat_k17n0")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_teiy1")
 
 [node name="healthbar" type="ProgressBar"]
 anchors_preset = 15
@@ -16,4 +24,6 @@ offset_bottom = -1009.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_kt5i2")
+value = 50.0
+show_percentage = false
 script = ExtResource("1_gbxj4")

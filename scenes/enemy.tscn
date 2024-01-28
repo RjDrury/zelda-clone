@@ -142,7 +142,7 @@ _data = {
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_o83nh"]
-radius = 65.0
+radius = 111.072
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7a6l6"]
 radius = 11.0
@@ -192,9 +192,9 @@ wait_time = 0.35
 one_shot = true
 
 [node name="healthbar" parent="." instance=ExtResource("3_jn11m")]
-offset_left = -16.0
-offset_top = -28.0
-offset_right = 18.0
+offset_left = -20.0
+offset_top = -19.0
+offset_right = 21.0
 offset_bottom = -11.0
 
 [connection signal="body_entered" from="detection_zone" to="." method="_on_detection_zone_body_entered"]
