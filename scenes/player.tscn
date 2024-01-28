@@ -1181,6 +1181,16 @@ autoplay = "RESET"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(5, 5)
+limit_left = -64
+limit_top = -186
+limit_right = 1936
+limit_bottom = 803
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_left_margin = 0.1
+drag_top_margin = 0.1
+drag_right_margin = 0.1
+drag_bottom_margin = 0.1
 
 [node name="character_customizer" parent="." instance=ExtResource("2_s1dy6")]
 offset_left = 35.6667
@@ -1205,6 +1215,7 @@ shape = SubResource("CapsuleShape2D_5xm6i")
 
 [node name="knockback_timer" type="Timer" parent="."]
 wait_time = 0.3
+one_shot = true
 
 [node name="healthbar" parent="." instance=ExtResource("9_ylxhy")]
 texture_filter = 1
