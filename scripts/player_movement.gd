@@ -121,8 +121,26 @@ func take_damage(damange: int, knockback: bool, directionToKockback) -> void:
 		is_knockedback = true
 		velocity = directionToKockback * speed 
 		knockback_timer.start()
+		playKnockBackAnimation(directionToKockback)
 		move_and_slide()
 		#body_sprite.modulate = Color(1, 0, 0, 1)
+		
+func playKnockBackAnimation(direction: Vector2):
+		if direction.x and abs(direction.y) <= abs(direction.x):
+				if direction.x > 0:
+						# Play the animation for knockback to the left
+						animationPlayer.play("hurt_left")
+				else:
+						# Play the animation for knockback to the right
+						animationPlayer.play("hurt_right")
+		elif direction.y:
+				if direction.y > 0:
+						# Play the animation for knockback up
+						animationPlayer.play("hurt_down")
+				else:
+						# Play the animation for knockback down
+						animationPlayer.play("hurt_up")
+
 
 func process_death():
 	pass
@@ -133,4 +151,5 @@ func _process(_delta):
 
 func _on_knockback_timer_timeout() -> void:
 	is_knockedback = false
+	animationPlayer.play("RESET")
 	#body_sprite.modulate = Color(1, 1, 1, 1)
