@@ -9,7 +9,7 @@ var speed = 100
 var is_chasing = false
 var is_attacking = false
 var is_enemy = true
-var health = 100
+@export var health = 100.0
 var is_dieing = false
 var is_knockedback = false
 

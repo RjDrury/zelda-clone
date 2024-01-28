@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://c5nnpu3kblrev"]
+
+[ext_resource type="Script" path="res://scripts/healthbar.gd" id="1_gbxj4"]
+
+[sub_resource type="Theme" id="Theme_kt5i2"]
+default_font_size = 8
+
+[node name="healthbar" type="ProgressBar"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 138.0
+offset_top = 44.0
+offset_right = -1440.0
+offset_bottom = -1009.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_kt5i2")
+script = ExtResource("1_gbxj4")

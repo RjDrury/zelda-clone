@@ -1,7 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://bq4eclwn86ymg"]
+[gd_scene load_steps=15 format=3 uid="uid://bq4eclwn86ymg"]
 
 [ext_resource type="Script" path="res://scripts/enemy.gd" id="1_oyty0"]
 [ext_resource type="Texture2D" uid="uid://baqwcp2etlpil" path="res://sprites/enemies/slime_all.png" id="1_xrwqb"]
+[ext_resource type="PackedScene" uid="uid://c5nnpu3kblrev" path="res://scenes/healthbar.tscn" id="3_jn11m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y68ur"]
 size = Vector2(13, 8)
@@ -189,6 +190,12 @@ one_shot = true
 [node name="attack_timer" type="Timer" parent="."]
 wait_time = 0.35
 one_shot = true
+
+[node name="healthbar" parent="." instance=ExtResource("3_jn11m")]
+offset_left = -16.0
+offset_top = -28.0
+offset_right = 18.0
+offset_bottom = -11.0
 
 [connection signal="body_entered" from="detection_zone" to="." method="_on_detection_zone_body_entered"]
 [connection signal="body_exited" from="detection_zone" to="." method="_on_detection_zone_body_exited"]

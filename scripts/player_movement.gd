@@ -3,7 +3,7 @@ extends CharacterBody2D
 var is_player = true
 @export var speed = 200
 @export var attack_damage = 20
-@export var health = 100
+@export var health = 100.0
 @onready var animationPlayer = $sprites/AnimationPlayer
 @onready var attack_hitbox = $attack_hitbox
 @onready var knockback_timer = $knockback_timer
@@ -117,6 +117,7 @@ func take_damage(damange: int, knockback: bool, directionToKockback) -> void:
 	if is_dieing:
 		return
 	health -= damange
+	Globals.player_health = health
 	if health <= 0:
 		process_death()
 		return
@@ -143,7 +144,6 @@ func playKnockBackAnimation(direction: Vector2):
 						# Play the animation for knockback down
 						animationPlayer.play("hurt_up")
 
-
 func process_death():
 	animationPlayer.play("die")
 	is_dieing = true
@@ -153,6 +153,8 @@ func _process(_delta):
 		process_attack()
 		process_movement()
 
+func _ready() -> void:
+	Globals.player_health = health
 func _on_knockback_timer_timeout() -> void:
 	is_knockedback = false
 	if !is_dieing:
