@@ -29,11 +29,12 @@ var attack_hitbox_settings = {
 var attack_direction = 'down'
 var is_attacking = false
 var is_knockedback = false
+var is_dieing = false
 var damaged_enemies_on_current_attack = []
 
 func process_movement():
 	#Input.getVector
-	if (is_knockedback):
+	if is_knockedback:
 		pass
 	elif (is_attacking):
 		velocity.x = 0
@@ -113,17 +114,18 @@ func is_still_attacking():
 		damaged_enemies_on_current_attack.clear()
 
 func take_damage(damange: int, knockback: bool, directionToKockback) -> void:
+	if is_dieing:
+		return
 	health -= damange
-	print(health)
 	if health <= 0:
 		process_death()
+		return
 	if knockback:
 		is_knockedback = true
 		velocity = directionToKockback * speed 
 		knockback_timer.start()
 		playKnockBackAnimation(directionToKockback)
 		move_and_slide()
-		#body_sprite.modulate = Color(1, 0, 0, 1)
 		
 func playKnockBackAnimation(direction: Vector2):
 		if direction.x and abs(direction.y) <= abs(direction.x):
@@ -143,13 +145,15 @@ func playKnockBackAnimation(direction: Vector2):
 
 
 func process_death():
-	pass
+	animationPlayer.play("die")
+	is_dieing = true
 
 func _process(_delta):
-	process_attack()
-	process_movement()
+	if !is_dieing:
+		process_attack()
+		process_movement()
 
 func _on_knockback_timer_timeout() -> void:
 	is_knockedback = false
-	animationPlayer.play("RESET")
-	#body_sprite.modulate = Color(1, 1, 1, 1)
+	if !is_dieing:
+		animationPlayer.play("RESET")
