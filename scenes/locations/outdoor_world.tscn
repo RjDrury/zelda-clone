@@ -2,9 +2,9 @@
 
 [ext_resource type="PackedScene" uid="uid://csnbn7pt3jgvw" path="res://scenes/characters/player.tscn" id="1_gi46c"]
 [ext_resource type="PackedScene" uid="uid://bq4eclwn86ymg" path="res://scenes/characters/enemy.tscn" id="2_icn28"]
-[ext_resource type="Texture2D" uid="uid://clg2dcc1q2rsk" path="res://sprites/tiles/tiles.png" id="3_fjqqn"]
-[ext_resource type="Texture2D" uid="uid://c6efpwfo0q7bn" path="res://sprites/tiles/buildings.png" id="4_dcmxo"]
-[ext_resource type="Texture2D" uid="uid://d2i1gbu7opbuy" path="res://sprites/tiles/cave_entrance.png" id="5_4yxqy"]
+[ext_resource type="Texture2D" uid="uid://clg2dcc1q2rsk" path="res://assets/tiles/tiles.png" id="3_fjqqn"]
+[ext_resource type="Texture2D" uid="uid://c6efpwfo0q7bn" path="res://assets/tiles/buildings.png" id="4_dcmxo"]
+[ext_resource type="Texture2D" uid="uid://d2i1gbu7opbuy" path="res://assets/tiles/cave_entrance.png" id="5_4yxqy"]
 [ext_resource type="Script" path="res://scripts/scene_transition.gd" id="6_asebe"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wa4r7"]

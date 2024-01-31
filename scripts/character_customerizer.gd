@@ -4,8 +4,8 @@ extends Control
 @onready var hat_texture = $"../sprites/hat"
 @onready var hair_sprite = $"../sprites/hair"
 const hatsDist = {
-	0: preload("res://sprites/character/hat/hat_cowboy.png"),
-	1: preload("res://sprites/character/hat/hat_witch.png")
+	0: preload("res://assets/character/hat/hat_cowboy.png"),
+	1: preload("res://assets/character/hat/hat_witch.png")
 }
 const hairOptions = {
 	0: Color(1, 1, 1, 1),

@@ -52,6 +52,7 @@ func _animate_enemy() -> void:
 func _on_detection_zone_body_entered(body: Node2D) -> void:
 	player = body
 	is_chasing = true
+
 func _on_detection_zone_body_exited(_body: Node2D) -> void:
 	player = null
 	is_chasing = false

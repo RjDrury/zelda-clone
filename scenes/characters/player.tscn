@@ -1,13 +1,13 @@
 [gd_scene load_steps=28 format=3 uid="uid://csnbn7pt3jgvw"]
 
-[ext_resource type="Texture2D" uid="uid://b72ie02dn584w" path="res://sprites/character/body/char1.png" id="1_7tvsr"]
 [ext_resource type="Script" path="res://scripts/player_movement.gd" id="1_mojdx"]
+[ext_resource type="Texture2D" uid="uid://b72ie02dn584w" path="res://assets/character/body/char1.png" id="2_0ltnr"]
 [ext_resource type="PackedScene" uid="uid://cta7k0fi8cdq8" path="res://scenes/UI/character_customizer.tscn" id="2_s1dy6"]
-[ext_resource type="Texture2D" uid="uid://wlotvs14y37l" path="res://sprites/character/shirt/overalls.png" id="3_0wvxa"]
-[ext_resource type="Texture2D" uid="uid://b5yleosqo1bal" path="res://sprites/character/hair/long_straight.png" id="3_j48bs"]
-[ext_resource type="Texture2D" uid="uid://dluau1x0ch65e" path="res://sprites/character/pants/pants.png" id="4_oa3pl"]
-[ext_resource type="Texture2D" uid="uid://sv7l3rvpc5e" path="res://sprites/character/shoes/shoes.png" id="5_qdpoa"]
-[ext_resource type="Texture2D" uid="uid://ggmt585e1rfe" path="res://sprites/character/hat/hat_cowboy.png" id="6_kcd1x"]
+[ext_resource type="Texture2D" uid="uid://wlotvs14y37l" path="res://assets/character/shirt/overalls.png" id="3_lysff"]
+[ext_resource type="Texture2D" uid="uid://dluau1x0ch65e" path="res://assets/character/pants/pants.png" id="4_eb42r"]
+[ext_resource type="Texture2D" uid="uid://sv7l3rvpc5e" path="res://assets/character/shoes/shoes.png" id="5_4p61m"]
+[ext_resource type="Texture2D" uid="uid://b5yleosqo1bal" path="res://assets/character/hair/long_straight.png" id="6_6rp5r"]
+[ext_resource type="Texture2D" uid="uid://ggmt585e1rfe" path="res://assets/character/hat/hat_cowboy.png" id="7_nkhrh"]
 [ext_resource type="PackedScene" uid="uid://c5nnpu3kblrev" path="res://scenes/UI/healthbar.tscn" id="9_7qchy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sb7nk"]
@@ -1130,14 +1130,14 @@ y_sort_enabled = true
 
 [node name="body" type="Sprite2D" parent="sprites"]
 position = Vector2(-2.08165e-12, -2.08165e-12)
-texture = ExtResource("1_7tvsr")
+texture = ExtResource("2_0ltnr")
 offset = Vector2(2.08165e-12, -15)
 hframes = 8
 vframes = 49
 
 [node name="shirt" type="Sprite2D" parent="sprites"]
 y_sort_enabled = true
-texture = ExtResource("3_0wvxa")
+texture = ExtResource("3_lysff")
 offset = Vector2(2.08165e-12, -15)
 hframes = 80
 vframes = 49
@@ -1145,7 +1145,7 @@ frame = 16
 
 [node name="pants" type="Sprite2D" parent="sprites"]
 y_sort_enabled = true
-texture = ExtResource("4_oa3pl")
+texture = ExtResource("4_eb42r")
 offset = Vector2(2.08165e-12, -15)
 hframes = 80
 vframes = 49
@@ -1153,14 +1153,14 @@ frame = 16
 
 [node name="shoes" type="Sprite2D" parent="sprites"]
 y_sort_enabled = true
-texture = ExtResource("5_qdpoa")
+texture = ExtResource("5_4p61m")
 offset = Vector2(2.08165e-12, -15)
 hframes = 80
 vframes = 49
 
 [node name="hair" type="Sprite2D" parent="sprites"]
 y_sort_enabled = true
-texture = ExtResource("3_j48bs")
+texture = ExtResource("6_6rp5r")
 offset = Vector2(2.08165e-12, -15)
 hframes = 112
 vframes = 49
@@ -1168,7 +1168,7 @@ frame = 80
 
 [node name="hat" type="Sprite2D" parent="sprites"]
 y_sort_enabled = true
-texture = ExtResource("6_kcd1x")
+texture = ExtResource("7_nkhrh")
 offset = Vector2(2.08165e-12, -15)
 hframes = 8
 vframes = 49

@@ -1,19 +1,19 @@
 [gd_scene load_steps=23 format=3 uid="uid://dq1scrp1hbcnd"]
 
+[ext_resource type="Texture2D" uid="uid://dvrr6y7s0emp6" path="res://assets/indoor/wallpapers.png" id="1_3b8s3"]
 [ext_resource type="PackedScene" uid="uid://csnbn7pt3jgvw" path="res://scenes/characters/player.tscn" id="1_a86bn"]
-[ext_resource type="Texture2D" uid="uid://dvrr6y7s0emp6" path="res://sprites/indoor/wallpapers.png" id="1_mi68u"]
-[ext_resource type="Texture2D" uid="uid://prxyc4hh2aiv" path="res://sprites/indoor/rugs.png" id="2_x62f7"]
-[ext_resource type="Texture2D" uid="uid://du1xeovbfjxxj" path="res://sprites/indoor/fireplaces.png" id="3_7ig4d"]
-[ext_resource type="Texture2D" uid="uid://cf3kdn1whmqji" path="res://sprites/indoor/bathroom.png" id="4_ubefy"]
-[ext_resource type="Texture2D" uid="uid://b3i47ovof3sau" path="res://sprites/indoor/beds.png" id="5_fq5hf"]
-[ext_resource type="Texture2D" uid="uid://cv5nxjq1uxntv" path="res://sprites/indoor/tables.png" id="6_0wbg4"]
-[ext_resource type="Texture2D" uid="uid://bx2dxycuf3qsh" path="res://sprites/indoor/couches.png" id="7_qgvnw"]
-[ext_resource type="Texture2D" uid="uid://q4cxqdsoufpd" path="res://sprites/indoor/couchtables.png" id="8_ht10f"]
-[ext_resource type="Texture2D" uid="uid://8vrjoknnxlwq" path="res://sprites/indoor/storage.png" id="9_hrkr5"]
+[ext_resource type="Texture2D" uid="uid://prxyc4hh2aiv" path="res://assets/indoor/rugs.png" id="2_gscsh"]
+[ext_resource type="Texture2D" uid="uid://du1xeovbfjxxj" path="res://assets/indoor/fireplaces.png" id="3_0vhh1"]
+[ext_resource type="Texture2D" uid="uid://cf3kdn1whmqji" path="res://assets/indoor/bathroom.png" id="4_dkwpt"]
+[ext_resource type="Texture2D" uid="uid://b3i47ovof3sau" path="res://assets/indoor/beds.png" id="5_iuj8n"]
+[ext_resource type="Texture2D" uid="uid://cv5nxjq1uxntv" path="res://assets/indoor/tables.png" id="6_lwt0f"]
+[ext_resource type="Texture2D" uid="uid://bx2dxycuf3qsh" path="res://assets/indoor/couches.png" id="7_34omo"]
+[ext_resource type="Texture2D" uid="uid://q4cxqdsoufpd" path="res://assets/indoor/couchtables.png" id="8_135cs"]
+[ext_resource type="Texture2D" uid="uid://8vrjoknnxlwq" path="res://assets/indoor/storage.png" id="9_nyfm8"]
 [ext_resource type="Script" path="res://scripts/scene_transition.gd" id="11_vs6kb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qdwd1"]
-texture = ExtResource("1_mi68u")
+texture = ExtResource("1_3b8s3")
 2:0/0 = 0
 3:0/0 = 0
 4:0/0 = 0
@@ -1513,7 +1513,7 @@ texture = ExtResource("1_mi68u")
 6:50/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_27hpd"]
-texture = ExtResource("2_x62f7")
+texture = ExtResource("2_gscsh")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -2012,7 +2012,7 @@ texture = ExtResource("2_x62f7")
 7:17/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1ey8u"]
-texture = ExtResource("3_7ig4d")
+texture = ExtResource("3_0vhh1")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -2302,7 +2302,7 @@ texture = ExtResource("3_7ig4d")
 16:15/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2x77g"]
-texture = ExtResource("4_ubefy")
+texture = ExtResource("4_dkwpt")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -2737,7 +2737,7 @@ texture = ExtResource("4_ubefy")
 27:19/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wj5nf"]
-texture = ExtResource("5_fq5hf")
+texture = ExtResource("5_iuj8n")
 0:1/0 = 0
 1:1/0 = 0
 2:1/0 = 0
@@ -6936,7 +6936,7 @@ texture = ExtResource("5_fq5hf")
 119:48/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_d7ftv"]
-texture = ExtResource("6_0wbg4")
+texture = ExtResource("6_lwt0f")
 2:0/0 = 0
 5:0/0 = 0
 8:0/0 = 0
@@ -7405,7 +7405,7 @@ texture = ExtResource("6_0wbg4")
 19:21/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_20f10"]
-texture = ExtResource("7_qgvnw")
+texture = ExtResource("7_34omo")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -8728,7 +8728,7 @@ texture = ExtResource("7_qgvnw")
 59:30/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gokio"]
-texture = ExtResource("8_ht10f")
+texture = ExtResource("8_135cs")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -8829,7 +8829,7 @@ texture = ExtResource("8_ht10f")
 17:6/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_urkvj"]
-texture = ExtResource("9_hrkr5")
+texture = ExtResource("9_nyfm8")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
