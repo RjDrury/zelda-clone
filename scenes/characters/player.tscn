@@ -2,13 +2,13 @@
 
 [ext_resource type="Texture2D" uid="uid://b72ie02dn584w" path="res://sprites/character/body/char1.png" id="1_7tvsr"]
 [ext_resource type="Script" path="res://scripts/player_movement.gd" id="1_mojdx"]
-[ext_resource type="PackedScene" uid="uid://cta7k0fi8cdq8" path="res://scenes/character_customizer.tscn" id="2_s1dy6"]
+[ext_resource type="PackedScene" uid="uid://cta7k0fi8cdq8" path="res://scenes/UI/character_customizer.tscn" id="2_s1dy6"]
 [ext_resource type="Texture2D" uid="uid://wlotvs14y37l" path="res://sprites/character/shirt/overalls.png" id="3_0wvxa"]
 [ext_resource type="Texture2D" uid="uid://b5yleosqo1bal" path="res://sprites/character/hair/long_straight.png" id="3_j48bs"]
 [ext_resource type="Texture2D" uid="uid://dluau1x0ch65e" path="res://sprites/character/pants/pants.png" id="4_oa3pl"]
 [ext_resource type="Texture2D" uid="uid://sv7l3rvpc5e" path="res://sprites/character/shoes/shoes.png" id="5_qdpoa"]
 [ext_resource type="Texture2D" uid="uid://ggmt585e1rfe" path="res://sprites/character/hat/hat_cowboy.png" id="6_kcd1x"]
-[ext_resource type="PackedScene" uid="uid://c5nnpu3kblrev" path="res://scenes/healthbar.tscn" id="9_ylxhy"]
+[ext_resource type="PackedScene" uid="uid://c5nnpu3kblrev" path="res://scenes/UI/healthbar.tscn" id="9_7qchy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sb7nk"]
 size = Vector2(12.3837, 4.00396)
@@ -1217,7 +1217,7 @@ shape = SubResource("CapsuleShape2D_5xm6i")
 wait_time = 0.3
 one_shot = true
 
-[node name="healthbar" parent="." instance=ExtResource("9_ylxhy")]
+[node name="healthbar" parent="." instance=ExtResource("9_7qchy")]
 texture_filter = 1
 anchors_preset = 0
 anchor_right = 0.0

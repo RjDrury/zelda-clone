@@ -1,13 +1,14 @@
-[gd_scene load_steps=10 format=3 uid="uid://d14bik84rpwcx"]
+[gd_scene load_steps=12 format=3 uid="uid://d14bik84rpwcx"]
 
-[ext_resource type="PackedScene" uid="uid://csnbn7pt3jgvw" path="res://scenes/player.tscn" id="1_ja4oc"]
-[ext_resource type="Texture2D" uid="uid://d2i1gbu7opbuy" path="res://sprites/tiles/cave_entrance.png" id="5_83yg2"]
-[ext_resource type="PackedScene" uid="uid://bq4eclwn86ymg" path="res://scenes/enemy.tscn" id="11_5j488"]
-[ext_resource type="Texture2D" uid="uid://clg2dcc1q2rsk" path="res://sprites/tiles/tiles.png" id="12_o0wkw"]
-[ext_resource type="Texture2D" uid="uid://c6efpwfo0q7bn" path="res://sprites/tiles/buildings.png" id="13_kijqg"]
+[ext_resource type="PackedScene" uid="uid://csnbn7pt3jgvw" path="res://scenes/characters/player.tscn" id="1_gi46c"]
+[ext_resource type="PackedScene" uid="uid://bq4eclwn86ymg" path="res://scenes/characters/enemy.tscn" id="2_icn28"]
+[ext_resource type="Texture2D" uid="uid://clg2dcc1q2rsk" path="res://sprites/tiles/tiles.png" id="3_fjqqn"]
+[ext_resource type="Texture2D" uid="uid://c6efpwfo0q7bn" path="res://sprites/tiles/buildings.png" id="4_dcmxo"]
+[ext_resource type="Texture2D" uid="uid://d2i1gbu7opbuy" path="res://sprites/tiles/cave_entrance.png" id="5_4yxqy"]
+[ext_resource type="Script" path="res://scripts/scene_transition.gd" id="6_asebe"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wa4r7"]
-texture = ExtResource("12_o0wkw")
+texture = ExtResource("3_fjqqn")
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
@@ -5165,7 +5166,7 @@ texture = ExtResource("12_o0wkw")
 13:49/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kiwex"]
-texture = ExtResource("13_kijqg")
+texture = ExtResource("4_dcmxo")
 1:2/0 = 0
 1:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 1:2/0/physics_layer_0/angular_velocity = 0.0
@@ -16845,7 +16846,7 @@ texture = ExtResource("13_kijqg")
 71:66/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xwrce"]
-texture = ExtResource("5_83yg2")
+texture = ExtResource("5_4yxqy")
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
@@ -16880,11 +16881,13 @@ sources/0 = SubResource("TileSetAtlasSource_wa4r7")
 sources/1 = SubResource("TileSetAtlasSource_kiwex")
 sources/2 = SubResource("TileSetAtlasSource_xwrce")
 
-[node name="main" type="Node2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_t78pi"]
+
+[node name="outdoor_world" type="Node2D"]
 y_sort_enabled = true
 position = Vector2(2.08165e-12, 2.08165e-12)
 
-[node name="player" parent="." instance=ExtResource("1_ja4oc")]
+[node name="player" parent="." instance=ExtResource("1_gi46c")]
 position = Vector2(920, 338)
 scale = Vector2(0.75, 0.75)
 collision_layer = 11
@@ -16892,13 +16895,13 @@ collision_mask = 11
 
 [node name="enemies" type="Node" parent="."]
 
-[node name="enemy" parent="enemies" instance=ExtResource("11_5j488")]
+[node name="enemy" parent="enemies" instance=ExtResource("2_icn28")]
 position = Vector2(314, 125)
 
-[node name="enemy2" parent="enemies" instance=ExtResource("11_5j488")]
+[node name="enemy2" parent="enemies" instance=ExtResource("2_icn28")]
 position = Vector2(114, 286)
 
-[node name="enemy3" parent="enemies" instance=ExtResource("11_5j488")]
+[node name="enemy3" parent="enemies" instance=ExtResource("2_icn28")]
 position = Vector2(297, 427)
 
 [node name="cozy-tilemap" type="TileMap" parent="."]
@@ -16917,3 +16920,14 @@ layer_2/tile_data = PackedInt32Array(983096, 4390913, 3, 1048632, 4390913, 4, 11
 layer_3/name = "topper"
 layer_3/y_sort_enabled = true
 layer_3/tile_data = PackedInt32Array(327746, 0, 47, 393282, 0, 48)
+
+[node name="scene_transitions" type="Node" parent="."]
+
+[node name="player_house" type="Area2D" parent="scene_transitions"]
+script = ExtResource("6_asebe")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="scene_transitions/player_house"]
+position = Vector2(931, 308)
+shape = SubResource("CircleShape2D_t78pi")
+
+[connection signal="body_entered" from="scene_transitions/player_house" to="scene_transitions/player_house" method="_on_body_entered"]

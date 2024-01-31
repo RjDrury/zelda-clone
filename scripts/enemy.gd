@@ -76,7 +76,7 @@ func _on_knockback_timer_timeout() -> void:
 	body_sprite.modulate = Color(1, 1, 1, 1)
 
 func _on_hitbox_body_entered(body: Node2D) -> void:
-	if body.get('is_player') && player:
+	if body.get('is_player') && player && !is_knockedback && !is_dieing:
 		var knockBackDirection = (player.position - position).normalized()
 		body.take_damage(12.5, true, knockBackDirection)
 		is_attacking = true

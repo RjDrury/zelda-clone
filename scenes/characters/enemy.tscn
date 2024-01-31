@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/enemy.gd" id="1_oyty0"]
 [ext_resource type="Texture2D" uid="uid://baqwcp2etlpil" path="res://sprites/enemies/slime_all.png" id="1_xrwqb"]
-[ext_resource type="PackedScene" uid="uid://c5nnpu3kblrev" path="res://scenes/healthbar.tscn" id="3_jn11m"]
+[ext_resource type="PackedScene" uid="uid://c5nnpu3kblrev" path="res://scenes/UI/healthbar.tscn" id="3_iw2ir"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y68ur"]
 size = Vector2(13, 8)
@@ -191,7 +191,7 @@ one_shot = true
 wait_time = 0.35
 one_shot = true
 
-[node name="healthbar" parent="." instance=ExtResource("3_jn11m")]
+[node name="healthbar" parent="." instance=ExtResource("3_iw2ir")]
 offset_left = -20.0
 offset_top = -19.0
 offset_right = 21.0

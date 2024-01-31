@@ -4,6 +4,7 @@ var is_player = true
 @export var speed = 200
 @export var attack_damage = 20
 @export var health = 100.0
+@export var initial_direction = ''
 @onready var animationPlayer = $sprites/AnimationPlayer
 @onready var attack_hitbox = $attack_hitbox
 @onready var knockback_timer = $knockback_timer
@@ -117,7 +118,6 @@ func take_damage(damange: int, knockback: bool, directionToKockback) -> void:
 	if is_dieing:
 		return
 	health -= damange
-	Globals.player_health = health
 	if health <= 0:
 		process_death()
 		return
@@ -154,7 +154,11 @@ func _process(_delta):
 		process_movement()
 
 func _ready() -> void:
-	Globals.player_health = health
+	if initial_direction == 'down':
+		animationPlayer.play("run_down")
+	elif initial_direction == 'up':
+		animationPlayer.play('run_up')
+		
 func _on_knockback_timer_timeout() -> void:
 	is_knockedback = false
 	if !is_dieing:

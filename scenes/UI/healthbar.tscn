@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://c5nnpu3kblrev"]
 
-[ext_resource type="Script" path="res://scripts/healthbar.gd" id="1_gbxj4"]
+[ext_resource type="Script" path="res://scripts/healthbar.gd" id="1_r1ran"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k17n0"]
 bg_color = Color(0.537255, 0.133333, 0.2, 1)
@@ -26,4 +26,4 @@ grow_vertical = 2
 theme = SubResource("Theme_kt5i2")
 value = 50.0
 show_percentage = false
-script = ExtResource("1_gbxj4")
+script = ExtResource("1_r1ran")
