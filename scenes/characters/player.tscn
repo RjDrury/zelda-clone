@@ -1180,13 +1180,11 @@ libraries = {
 autoplay = "RESET"
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(5, 5)
+zoom = Vector2(3, 3)
 limit_left = -64
 limit_top = -186
 limit_right = 1936
 limit_bottom = 803
-drag_horizontal_enabled = true
-drag_vertical_enabled = true
 drag_left_margin = 0.1
 drag_top_margin = 0.1
 drag_right_margin = 0.1

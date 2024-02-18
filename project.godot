@@ -29,6 +29,14 @@ window/size/mode=3
 
 project/assembly_name="test"
 
+[file_customization]
+
+folder_colors={
+"res://assets/": "pink",
+"res://scenes/": "orange",
+"res://scripts/": "blue"
+}
+
 [input]
 
 run_down={
